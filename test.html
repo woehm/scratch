@@ -1,0 +1,669 @@
+<!DOCTYPE html><html><head>
+      <title>test</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <div><h2 class="mume-header" id="html-test-html-in-a-markdown-file">HTML-Test (html in a Markdown File):</h2>
+
+<hr>
+<p><b>Prospero</b> steht f&#xFC;r:</p>
+<p></p>
+<ul><li>einen m&#xE4;nnlichen Vornamen, siehe <a href="wiki\Prospero" title="Prospero">Prospero</a></li>
+<li>die Hauptfigur in <a href="wiki\Der_Sturm_(Shakespeare)" title="Der Sturm (Shakespeare)">Der Sturm (Shakespeare)</a></li>
+<li>eine Oper von <a href="wiki\Luca_Lombardi" title="Luca Lombardi">Luca Lombardi</a></li>
+<li><a href="wiki\Prospero_(Satellit)" title="Prospero (Satellit)">Prospero (Satellit)</a>, ein Satellit</li>
+<li><a href="wiki\Prospero_(Mond)" title="Prospero (Mond)">Prospero (Mond)</a>, ein Mond</li>
+<li><a href="wiki\Prospero_(Protokoll)" title="Prospero (Protokoll)">Prospero (Protokoll)</a>, ein Protokoll</li>
+<li><a href="w\index.php?title=Prospero_(Gattung)&amp;action=edit&amp;redlink=1" class="new" title="Prospero (Gattung) (Seite nicht vorhanden)">Prospero (Gattung)</a>, eine Gattung der botanischen Unterfamilie <a href="wiki\Scilloideae" title="Scilloideae">Scilloideae</a></li>
+<li>ein Gen der Fruchtfliege <a href="wiki\Drosophila_melanogaster" title="Drosophila melanogaster">Drosophila melanogaster</a></li>
+<li>eine Hauptfigur im Roman <a href="wiki\Die_Maske_des_Roten_Todes" title="Die Maske des Roten Todes">Die Maske des Roten Todes</a></li>
+<li><a href="w\index.php?title=Prospero_(Band)&amp;action=edit&amp;redlink=1" class="new" title="Prospero (Band) (Seite nicht vorhanden)">Prospero (Band)</a>, Soloprojekt des kanadischen Musikers Wade Anderson</li>
+<li><a href="wiki\Prospero_Verlag" title="Prospero Verlag">Prospero Verlag</a>, war 2009&#x2013;2016 ein Verlag in M&#xFC;nster und Berlin</li>
+<br>
+<p>Zw&#xF6;lf Jahre vor Einsetzen der Spielhandlung waren der <a href="wiki\Zauberer" title="Zauberer">Zauberer</a> Prospero und seine Tochter Miranda auf einer <a href="wiki\Insel" title="Insel">Insel</a> gestrandet. Prospero war vormals Herzog von <a href="wiki\Mailand" title="Mailand">Mailand</a> gewesen, hatte sich jedoch mehr und mehr mit seinen magischen Studien besch&#xE4;ftigt und seine Pflichten als Herzog vernachl&#xE4;ssigt. Dies nutzte sein machthungriger Bruder Antonio aus, indem er mit Hilfe Alonsos, des K&#xF6;nigs von Neapel, eine Armee aufstellte, gegen Mailand zog und Prospero st&#xFC;rzte. Prospero war zusammen mit seiner Tochter in einem kaum seet&#xFC;chtigen Boot auf die Insel entkommen.
+Inzwischen ist er Herrscher der Insel; ihm unterstehen der Luftgeist <a href="wiki\Ariel_(Engel)" title="Ariel (Engel)">Ariel</a> sowie der deformierte Sohn der <a href="wiki\Hexe" title="Hexe">Hexe</a> Sycorax namens <a href="wiki\Caliban_(Shakespeare)" title="Caliban (Shakespeare)">Caliban</a>. Sycorax hatte Ariel vor ihrem Tod in einer gespaltenen Kiefer gefangen gesetzt, in der er auf ewig geblieben w&#xE4;re, h&#xE4;tte Prospero ihn nicht befreit. Aus Dankbarkeit steht Ariel jetzt Prospero zu Diensten.
+</p><p>Auf dem R&#xFC;ckweg von einer Hochzeit in Tunis segelt die Flotte des K&#xF6;nigs von Neapel mit dem K&#xF6;nigsbruder Sebastian, dem K&#xF6;nigssohn Ferdinand und Prosperos Bruder Antonio an der Insel vorbei. Prospero befiehlt Ariel, das Schiff des K&#xF6;nigs in einem Unwetter an der Insel stranden zu lassen. W&#xE4;hrend das Schiff von dem Luftgeist an die Insel getrieben wird, h&#xE4;lt der Rest der Flotte es f&#xFC;r verloren und f&#xE4;hrt nach Neapel zur&#xFC;ck. Ariel versetzt die Besatzung des gestrandeten Schiffs in einen Zauberschlaf, die &#xFC;brigen Schiffbr&#xFC;chigen l&#xE4;sst er auf der Insel umherirren. Ariel f&#xFC;hrt Ferdinand zu Prospero und Miranda, die au&#xDF;er ihrem Vater und Caliban noch keinen Mann gesehen hat und sich sofort in Ferdinand verliebt wie auch dieser sich in sie.
+</p><p>Unterdessen suchen Alonso, Antonio, Sebastian und andere Schiffbr&#xFC;chige auf der Insel den vermissten Ferdinand. Antonio bem&#xFC;ht sich, Sebastian zu verleiten, seinen Bruder zu t&#xF6;ten, damit Sebastian selbst K&#xF6;nig werde. Eine Prozession Geister tritt auf und bringt ihnen ein Gastmahl. Ariel erscheint in Gestalt einer <a href="wiki\Harpyie_(Mythologie)" title="Harpyie (Mythologie)">Harpyie</a> und beschuldigt Alonso, Antonio und Sebastian, Prospero aus Mailand vertrieben und ihn und sein Kind dem Meer &#xFC;berlassen zu haben; wegen dieser S&#xFC;nde h&#xE4;tten die M&#xE4;chte der Natur und des Meeres nun Ferdinand genommen.
+</p><p>Die Matrosen Trinculo und Stefano treffen auf Caliban, der sich als Untertan eines Tyrannen und Zauberers darstellt, der ihn um die Insel betrogen habe. Unter den dreien, die von Ariel belauscht werden, entsteht der Plan, Prospero zu t&#xF6;ten und die Insel in ihre Gewalt zu bringen. Der Schl&#xFC;ssel dazu liege darin, sich Prosperos B&#xFC;cher &#xFC;ber Magie zu bem&#xE4;chtigen, dann k&#xF6;nne die Tat ausgef&#xFC;hrt und Stefano K&#xF6;nig der Insel werden.
+</p><p>Prospero gibt der Verbindung von Ferdinand und Miranda seinen Segen. Zur Feier erscheinen drei Geister in Gestalt von Iris, Juno und Ceres, um ein Maskenspiel f&#xFC;r Ferdinand und Miranda aufzuf&#xFC;hren. Da erinnert sich Prospero, dass die Stunde fast gekommen ist, da Caliban und seine Mitverschworenen ihm nach dem Leben trachten werden, und schickt die Geister fort, mit den Worten: &#x201E;Unser Schwelgen ist nun zu Ende. Diese unsere Schauspieler, wie ich euch vorhersagte, waren alle Geister, und zerflossen in Luft, in d&#xFC;nne Luft. Und, wie das haltlose Gebilde dieser Vision, sollen sich die mit Wolken bedeckten T&#xFC;rme, die stattlichen Pal&#xE4;ste, die ehrw&#xFC;rdigen Tempel und der gro&#xDF;e Globus selbst, ja, und alles was er in sich tr&#xE4;gt, aufl&#xF6;sen. Und wie dieses d&#xFC;rftige Schauspiel verschwand, lassen sie nicht einen Fetzen zur&#xFC;ck. Wir sind solcher Stoff, <i>auf</i> dem Tr&#xE4;ume entstehen, und unser kleines Leben wird mit einem Schlaf abgerundet.&#x201C; (&quot;Our revels now are ended. These our actors, / As I fortold you, were all spirits, and / Are melted into air, into thin air, / And, like the baseless fabric of this vision, / The cloud-capped towers, the gorgeous palaces, / The solemn temples, the great globe itself, / Yea, all which it inherit, shall dissolve; / And, like this insubstantial pageant faded, / Leave not a rack behind. We are such stuff / As dreams are made on, and our little life / Is rounded with a sleep.&quot; IV.iv.148-158)
+</p><p>Als Caliban, Trinculo und Stefano eintreten, erscheint eine Meute Geister in der Gestalt von Hunden und verscheucht die Eindringlinge. Ariel f&#xFC;hrt Alonso, Antonio und Sebastian zu Prosperos H&#xF6;hle, Prospero vergibt seinem Bruder Antonio, fordert aber von diesem sein Herzogtum zur&#xFC;ck. Nachdem Alonso Prospero von dem vermissten Ferdinand erz&#xE4;hlt hat, zieht Prospero einen Vorhang zur Seite, hinter dem Ferdinand und Miranda Schach spielen. Alonso ist &#xFC;bergl&#xFC;cklich. Die erstaunte Miranda ruft aus: &#x201E;O Wunder! Wieviel feine Gesch&#xF6;pfe gibt es hier! Wie sch&#xF6;n ist das menschliche Geschlecht! O sch&#xF6;ne neue Welt, die solche Leute hat!&#x201C; (&quot;O, wonder! / How many goodly creatures are there here! / How beautious mankind is! O brave new world / That has such people in&apos;t!&quot;; V.iv.184-187)
+</p><p>Ariel bringt noch die auf dem Schiff verbliebene Besatzung sowie Caliban, Trinculo und Stefano herbei. Prospero entsagt seiner Zauberkraft und erkl&#xE4;rt seine Absicht, nach Mailand zur&#xFC;ckzukehren, nachdem er sowohl Ariel als auch Caliban aus ihrer Dienerschaft entlassen hat. Ob die verbrecherischen Br&#xFC;der ihn mitnehmen werden, l&#xE4;sst Shakespeare offen. In seinem Schlussmonolog fleht Prospero das Publikum an, ihn wenigstens durch Klatschen zu erl&#xF6;sen.
+</p> 
+<hr>
+<h1 class="mume-header" id="heading-1">Heading 1</h1>
+
+<h2 class="mume-header" id="heading-2">Heading 2</h2>
+
+<h3 class="mume-header" id="heading-3">Heading 3</h3>
+
+<h4 class="mume-header" id="heading-4">Heading 4</h4>
+
+<h5 class="mume-header" id="heading-5">Heading 5</h5>
+
+<p>Test heading 5</p>
+<h6 class="mume-header" id="heading-6">Heading 6</h6>
+
+<p>Halt halt halt , ich habe vergessen dich etwas zu fragen. Meine externa Festplatte ist kaputt gegangen, alle Bilder weg etc &#x2639; mir hat ein ITler geraten in der wz, ich solle mir einen kleinen Server kaufen, das w&#xE4;re besser also so ein Ding wieder. Hmm. Ich kenne mich noch nicht aus mit Server und billig sind da die guten auch nicht. Was meinst du? Ich will ja nur Bilder, Songs und ein paar Dokumente wieder sichern k&#xF6;nnen. Achja und gebraucht mag ich &#xFC;berhaupt nicht. Denen kann man ja nicht mehr trauen!</p>
+<hr>
+<h1 class="mume-header" id="love-is-bold">Love <strong>is</strong> bold</h1>
+
+<h1 class="mume-header" id="a-cat-italic">A <em>cat</em> italic</h1>
+
+<h1 class="mume-header" id="this-text-is-ireally-importanti">This text is <i><strong>really important</strong></i></h1>
+
+<hr>
+<blockquote>
+<h3><em>Dorothy followed her italic through many of the beautiful rooms in her castle.</em></h3>
+</blockquote>
+<hr>
+<ul>
+<li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox"> 
+</li>
+<li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox"> 
+</li>
+<li>[x]</li>
+</ul>
+<hr>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td></td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td>3</td>
+<td>4 (realy long long text is this)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>3<br>
+1</p>
+</blockquote>
+<blockquote>
+<p>vvv<br>
+6</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<h4>The quarterly results look great!</h4>
+<ul>
+<li>Revenue was off the chart.</li>
+<li>Profits were higher than ever.</li>
+</ul>
+<p><em>Everything</em> is going according to <strong>plan</strong>.</p>
+</blockquote>
+<hr>
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+<li>Fourth item</li>
+</ol>
+<hr>
+<ul>
+<li>
+<h2>First <em>italic item</em></h2>
+</li>
+<li>
+<h2>Second item</h2>
+</li>
+<li>
+<h2>Third item</h2>
+<ul>
+<li>
+<h4><strong>Indented bold item</strong></h4>
+<ul>
+<li>
+<h5><em>italic</em></h5>
+</li>
+<li>
+<h5><em>spain</em></h5>
+</li>
+</ul>
+</li>
+<li>
+<h4><em>Indented italic item</em></h4>
+</li>
+</ul>
+</li>
+<li>
+<h2>Fourth item</h2>
+</li>
+</ul>
+<hr>
+<ol>
+<li>Open the file.</li>
+<li>Find the following code block on line 21:</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Test&lt;/title&gt;
+  &lt;/head&gt;
+</code></pre><ol start="3">
+<li>Update the title to match the name of your website.</li>
+</ol>
+<hr>
+<h2 class="mume-header" id="display-links">Display Links:</h2>
+
+<ul>
+<li>
+<p><a href="https://www.markdownguide.org">https://www.markdownguide.org</a><br>
+<a href="mailto:fake@example.com">fake@example.com</a></p>
+</li>
+<li>
+<p>I love supporting the <b><a href="https://eff.org">EFF</a></b>.</p>
+</li>
+<li>
+<p>This is the <i><a href="https://www.markdownguide.org">Markdown Guide</a></i>.<br>
+See the section on <a href="#code"><code>code</code></a>.</p>
+</li>
+<li>
+<p>In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends<br>
+of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to<br>
+eat: it was a <a href="https://en.wikipedia.org/wiki/Hobbit#Lifestyle" title="Hobbit lifestyles">hobbit-hole</a>, and that means comfort.</p>
+</li>
+</ul>
+<hr>
+<h2 class="mume-header" id="code">Code:</h2>
+
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Some Javascript code</span>
+<span class="token keyword">function</span> <span class="token function">myFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Hello World!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment"># some python code</span>
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># show figure</span>
+</pre><hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Left-Aligned</th>
+<th style="text-align:center">Center Aligned</th>
+<th style="text-align:right">Right Aligned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">col 1 is</td>
+<td style="text-align:center">some wordy text</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td style="text-align:left">col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td style="text-align:left">zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1 &#x1F603;</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="some-smileys">Some smileys:</h4>
+
+<ul>
+<li>&quot;&#x1F609;&quot;</li>
+<li>&quot;&#x1F603;&quot;</li>
+<li>&quot;&#x1F626;&quot;</li>
+<li>Drei Affen: &#x1F648; &#x1F649; &#x1F64A;</li>
+</ul>
+<h4 class="mume-header" id="smileys-utf-8">Smileys utf-8:</h4>
+
+<ul>
+<li>Mikrobe<br>
+&#x1F9A0;<br>
+Krone<br>
+&#x1F451;</li>
+</ul>
+<p>&amp;#x1F600  &#x1F600;<br>
+&amp;#x1F601  &#x1F601;<br>
+&amp;#x1F602  &#x1F602;<br>
+&amp;#x1F603  &#x1F603;<br>
+&amp;#x1F604  &#x1F604;<br>
+&amp;#x1F605  &#x1F605;<br>
+&amp;#x1F606  &#x1F606;<br>
+&amp;#x1F607  &#x1F607;<br>
+&amp;#x1F608  &#x1F608;<br>
+&amp;#x1F609  &#x1F609;<br>
+&amp;#x1F60A  &#x1F60A;<br>
+&amp;#x1F60B  &#x1F60B;<br>
+&amp;#x1F60C  &#x1F60C;<br>
+&amp;#x1F60D  &#x1F60D;<br>
+&amp;#x1F60E  &#x1F60E;<br>
+&amp;#x1F60F  &#x1F60F;<br>
+&amp;#x1F610  &#x1F610;<br>
+&amp;#x1F611  &#x1F611;<br>
+&amp;#x1F612  &#x1F612;<br>
+&amp;#x1F613  &#x1F613;<br>
+&amp;#x1F614  &#x1F614;<br>
+&amp;#x1F615  &#x1F615;<br>
+&amp;#x1F616  &#x1F616;<br>
+&amp;#x1F617  &#x1F617;<br>
+&amp;#x1F618  &#x1F618;<br>
+&amp;#x1F619  &#x1F619;<br>
+&amp;#x1F61A  &#x1F61A;<br>
+&amp;#x1F61B  &#x1F61B;<br>
+&amp;#x1F61C  &#x1F61C;<br>
+&amp;#x1F61D  &#x1F61D;<br>
+&amp;#x1F61E  &#x1F61E;<br>
+&amp;#x1F61F  &#x1F61F;<br>
+&amp;#x1F620  &#x1F620;<br>
+&amp;#x1F621  &#x1F621;<br>
+&amp;#x1F622  &#x1F622;<br>
+&amp;#x1F623  &#x1F623;<br>
+&amp;#x1F624  &#x1F624;<br>
+&amp;#x1F625  &#x1F625;<br>
+&amp;#x1F626  &#x1F626;<br>
+&amp;#x1F627  &#x1F627;<br>
+&amp;#x1F628  &#x1F628;<br>
+&amp;#x1F629  &#x1F629;<br>
+&amp;#x1F62A  &#x1F62A;<br>
+&amp;#x1F62B  &#x1F62B;<br>
+&amp;#x1F62C  &#x1F62C;<br>
+&amp;#x1F62D  &#x1F62D;<br>
+&amp;#x1F62E  &#x1F62E;<br>
+&amp;#x1F62F  &#x1F62F;<br>
+&amp;#x1F630  &#x1F630;<br>
+&amp;#x1F631  &#x1F631;<br>
+&amp;#x1F632  &#x1F632;<br>
+&amp;#x1F633  &#x1F633;<br>
+&amp;#x1F634  &#x1F634;<br>
+&amp;#x1F635  &#x1F635;<br>
+&amp;#x1F636  &#x1F636;<br>
+&amp;#x1F637  &#x1F637;<br>
+&amp;#x1F638  &#x1F638;<br>
+&amp;#x1F639  &#x1F639;<br>
+&amp;#x1F63A  &#x1F63A;<br>
+&amp;#x1F63B  &#x1F63B;<br>
+&amp;#x1F63C  &#x1F63C;<br>
+&amp;#x1F63D  &#x1F63D;<br>
+&amp;#x1F63E  &#x1F63E;<br>
+&amp;#x1F63F  &#x1F63F;<br>
+&amp;#x1F640  &#x1F640;<br>
+&amp;#x1F641  &#x1F641;<br>
+&amp;#x1F642  &#x1F642;<br>
+&amp;#x1F643  &#x1F643;<br>
+&amp;#x1F644  &#x1F644;<br>
+&amp;#x1F645  &#x1F645;<br>
+&amp;#x1F646  &#x1F646;<br>
+&amp;#x1F647  &#x1F647;<br>
+&amp;#x1F648  &#x1F648;<br>
+&amp;#x1F649  &#x1F649;<br>
+&amp;#x1F64A  &#x1F64A;<br>
+&amp;#x1F64B  &#x1F64B;<br>
+&amp;#x1F64C  &#x1F64C;<br>
+&amp;#x1F64D  &#x1F64D;<br>
+&amp;#x1F64E  &#x1F64E;<br>
+&amp;#x1F64F  &#x1F64F;</p>
+<hr>
+<h2 class="mume-header" id="math-formulas">Math Formulas:</h2>
+
+<p>you can use <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span></span> to typeset formulas. A formula can be displayed inline, e.g. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">e=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> or as a block:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">e=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>&#x222B;</mo><mi mathvariant="normal">&#x3A9;</mi></msub><mi mathvariant="normal">&#x2207;</mi><mi>u</mi><mo>&#x22C5;</mo><mi mathvariant="normal">&#x2207;</mi><mi>v</mi><mtext>&#xA0;</mtext><mi>d</mi><mi>x</mi><mo>=</mo><msub><mo>&#x222B;</mo><mi mathvariant="normal">&#x3A9;</mi></msub><mi>f</mi><mi>v</mi><mtext>&#xA0;</mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\int_\Omega \nabla u \cdot \nabla v~dx = \int_\Omega fv~dx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">&#x222B;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">&#x3A9;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">&#x2207;</span><span class="mord mathdefault">u</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x22C5;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">&#x2207;</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mspace nobreak">&#xA0;</span><span class="mord mathdefault">d</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">&#x222B;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">&#x3A9;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mspace nobreak">&#xA0;</span><span class="mord mathdefault">d</span><span class="mord mathdefault">x</span></span></span></span></span></p>
+</li>
+<li>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo><mi>lim</mi><mo>&#x2061;</mo></mo><mrow><mi>x</mi><mo>&#x2192;</mo><mi mathvariant="normal">&#x221E;</mi></mrow></munder><mi>exp</mi><mo>&#x2061;</mo><mo stretchy="false">(</mo><mo>&#x2212;</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lim\limits_{x \to \infty} \exp(-x) = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.45em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="mrel mtight">&#x2192;</span><span class="mord mtight">&#x221E;</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord">&#x2212;</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+</li>
+<li>
+<p>Also check out this <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX introduction</a>.</p>
+</li>
+</ul>
+<h3 class="mume-header" id="s-i-r-modell">S-I-R Modell:</h3>
+
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mfrac><mrow><mi mathvariant="normal">d</mi><mi>S</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mo>&#x2212;</mo><mi>&#x3B2;</mi><mfrac><mrow><mi>S</mi><mtext>&#x2009;</mtext><mi>I</mi></mrow><mi>N</mi></mfrac></mstyle></mrow><annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {d} S}{\mathrm {d} t}}=-\beta {\frac {S\,I}{N}}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathdefault">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">&#x2212;</span><span class="mord mathdefault" style="margin-right:0.05278em;">&#x3B2;</span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></span></p>
+<hr>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mstyle scriptlevel="0" displaystyle="true"><mfrac><mrow><mi mathvariant="normal">d</mi><mi>I</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mi>&#x3B2;</mi><mfrac><mrow><mi>S</mi><mtext>&#x2009;</mtext><mi>I</mi></mrow><mi>N</mi></mfrac><mo>&#x2212;</mo><mi>&#x3B3;</mi><mtext>&#x2009;</mtext><mi>I</mi></mstyle></mrow><annotation encoding="application/x-tex">d{\displaystyle {\frac {\mathrm {d} I}{\mathrm {d} t}}=\beta {\frac {S\,I}{N}}-\gamma \,I}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathdefault">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">&#x3B2;</span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">&#x3B3;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span></span></span></p>
+<hr>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mstyle scriptlevel="0" displaystyle="true"><mfrac><mrow><mi mathvariant="normal">d</mi><mi>R</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mi>&#x3B3;</mi><mtext>&#x2009;</mtext><mi>I</mi></mstyle></mrow><annotation encoding="application/x-tex">d{\displaystyle {\frac {\mathrm {d} R}{\mathrm {d} t}}=\gamma \,I}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathdefault">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">&#x3B3;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span></span></span></p>
+<p>Jetzt wollen wir das S-I-R Modell numerisch l&#xF6;sen. Dazu wird hier Python verwendet. Zun&#xE4;chst implementieren wir die Rechte Seite als eine Funktion, die als Eingabe die drei Anfangsbedingungen <em>y0</em> f&#xFC;r <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo stretchy="false">(</mo><mi>t</mi><mo>=</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">S(t=0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><mi>t</mi><mo>=</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">I(t=0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> und <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>t</mi><mo>=</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(t=0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span>, die Zeitachse <em>t</em>, die Gesamtzahl der Individuen <em>N</em>, und die beiden &#xC4;nderungsraten <em>c</em> und <em>w</em> annimmt. Als Ausgabe wirderden die drei Gr&#xF6;&#xDF;en <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">S(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">I(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span> und <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span> zur&#xFC;ck gegeben, also die Funktionen f&#xFC;r die Anf&#xE4;lligen, die Infizierten und die Genesenen.</p>
+<p>F&#xFC;r die Anfangswerte werden wir versuchen realistische Werte f&#xFC;r Deutschland zu nehmen. Wir befinden uns im Anfangsstadium der Infektion. Wir werden mit einem Zeitschritt von einem Tag rechnen. Die Simulation wird sich &#xFC;ber ein Jahr, also 365 Tage erstrecken und wir werden f&#xFC;r jeden Tag eine Zahl f&#xFC;r die jeweiligen Gruppen erhalten.</p>
+<p>Wir rechnen mit Fallzahlen umgerechnet auf 100.000 Einwohner nehmen die Zahl der Infizierten vom 15.3.2020, 15:00 als Wert f&#xFC;r <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> in unserer Berechnung. Zu dem Zeitpunkt waren im Bundesdurchschnitt <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo separator="true">,</mo><mn>83</mn></mrow><annotation encoding="application/x-tex">5,83</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">8</span><span class="mord">3</span></span></span></span> F&#xE4;lle pro 100.000 gemeldet, also ist <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><mi>t</mi><mo>=</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mn>5</mn><mo separator="true">,</mo><mn>83</mn></mrow><annotation encoding="application/x-tex">I(t=0) = 5,83</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">8</span><span class="mord">3</span></span></span></span>. Die Infektionsrate und die Genesungsrate hatten wir oben schon besprochen, so dass sich die folgenden Daten (Parameter) f&#xFC;r unsere Simulation ergeben:</p>
+<p><em>TEST</em><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>100.000</mn></mrow><annotation encoding="application/x-tex">N = 100.000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>5</mn><mo separator="true">,</mo><mn>83</mn></mrow><annotation encoding="application/x-tex">I(t_0) = 5,83</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">8</span><span class="mord">3</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">R(t_0) = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo stretchy="false">(</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mi>N</mi><mo>&#x2212;</mo><mi>I</mi><mo stretchy="false">(</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>&#x2212;</mo><mi>R</mi><mo stretchy="false">(</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>99.994</mn><mo separator="true">,</mo><mn>17</mn></mrow><annotation encoding="application/x-tex">S(t_0) = N-I(t_0)-R(t_0) = 99.994,17</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">9</span><span class="mord">9</span><span class="mord">.</span><span class="mord">9</span><span class="mord">9</span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">7</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>2</mn><mi mathvariant="normal">/</mi><mn>4.5</mn></mrow><annotation encoding="application/x-tex">c = 2/4.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">/</span><span class="mord">4</span><span class="mord">.</span><span class="mord">5</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>12</mn></mrow><annotation encoding="application/x-tex">w = 1/12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord">1</span><span class="mord">2</span></span></span></span></p>
+<hr>
+<h1 class="mume-header" id="images">Images:</h1>
+
+<h2 class="mume-header" id="import-image">Import Image:</h2>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Einstein-formal_portrait-35.jpg" alt="Image of Einstein"></p>
+<p><img src="virus-Worldmaps\VirusKarte_US_30_03_20.png" alt="Image of Corona US"></p>
+<h2 class="mume-header" id="import-image-format">Import Image format:</h2>
+
+<ul>
+<li>test1
+<ul>
+<li>test2<br>
+<img src="virus-Worldmaps\VirusKarte_US_30_03_20.png?0.057792445527901304" width="200px" height="100px" title="my title" alt="my alt">
+<ul>
+<li>test3<br>
+<img src="virus-Worldmaps\VirusKarte_US_30_03_20.png?0.057792445527901304" width="100px" height="75px" title="my title" alt="my alt"></li>
+<li>test4
+<ul>
+<li><img src="virus-Worldmaps\VirusKarte_US_30_03_20.png" alt="Image of Corona US"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="a-tux-image">A tux image:</h2>
+
+<p><img src="tux.png" alt="Image of Tux"></p>
+<h3 class="mume-header" id="script-execution">Script execution:</h3>
+
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="python"><div class="input-div"><pre data-role="codeBlock" data-info="python {code_chunk_offset=0, cmd=true matplotlib=true}" class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># show figure</span>
+</pre><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><h4 class="mume-header" id="end">end</h4>
+
+</ul></div>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
